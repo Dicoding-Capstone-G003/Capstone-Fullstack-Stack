@@ -14,6 +14,7 @@ Folder ini berisi copy dari `Backend-Capstone` dan `Frontend-Capstone` yang suda
 - Frontend: `http://localhost:8012`
 - Backend API: `http://localhost:8010`
 - Backend health check: `http://localhost:8010/health`
+- Demo produk live: [https://db10-g003.my.id/](https://db10-g003.my.id/)
 
 Frontend di-stack ini sudah diarahkan ke backend lokal lewat proxy Nginx `/api`, jadi tidak lagi memakai endpoint remote.
 
