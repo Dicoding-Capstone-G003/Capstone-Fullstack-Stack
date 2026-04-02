@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Solar PV Intelligence | Premium Dashboard</title>
+    <link rel="icon" type="image/png" href="/public/Logo.png" />
+    <link rel="apple-touch-icon" href="/public/Logo.png" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="./style.css" />
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="/public/Logo.png" alt="SolarIntelligence logo" class="brand__logo" />
+        <span>SolarIntelligence</span>
+      </div>
+
+      <div class="section-label">Konfigurasi Sistem</div>
+
+      <div class="input-group">
+        <label for="region">Pilih Wilayah</label>
+        <select id="region"></select>
+      </div>
+
+      <div class="input-group">
+        <label for="capacity">Kapasitas Panel</label>
+        <select id="capacity">
+          <option value="1">1 kWp</option>
+          <option value="3">3 kWp</option>
+          <option value="5" selected>5 kWp</option>
+          <option value="10">10 kWp</option>
+        </select>
+      </div>
+
+      <div class="status-panel" id="status-panel">Menghubungkan ke API...</div>
+
+      <div class="section-label">Estimasi Harian</div>
+      <div class="stats-grid">
+        <div class="stat-card stat-peak">
+          <span>Peak</span>
+          <b id="peak-value">-</b>
+        </div>
+        <div class="stat-card stat-avg">
+          <span>Average</span>
+          <b id="avg-value">-</b>
+        </div>
+        <div class="stat-card stat-min">
+          <span>Min</span>
+          <b id="min-value">-</b>
+        </div>
+        <div class="stat-card stat-prob">
+          <span>Sun Hours</span>
+          <b id="sun-hours-value">-</b>
+        </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="section-label">Made by</div>
+        <div class="credit-list">
+          <a class="credit-link" href="https://github.com/VincentiusRP" target="_blank" rel="noreferrer">
+            <img src="/public/Git-Icon-Black.png" alt="" class="credit-link__icon" />
+            <span>Vincentius Richardo Putra</span>
+          </a>
+          <a class="credit-link" href="https://github.com/DrdmRandom" target="_blank" rel="noreferrer">
+            <img src="/public/Git-Icon-Black.png" alt="" class="credit-link__icon" />
+            <span>Dawwi R.D. Muljan</span>
+          </a>
+          <a class="credit-link" href="https://github.com/JovianNicho" target="_blank" rel="noreferrer">
+            <img src="/public/Git-Icon-Black.png" alt="" class="credit-link__icon" />
+            <span>Jovian Nicholas Bachri</span>
+          </a>
+          <a class="credit-link" href="https://github.com/RohmanCis" target="_blank" rel="noreferrer">
+            <img src="/public/Git-Icon-Black.png" alt="" class="credit-link__icon" />
+            <span>Rokman Nurhidayat</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section id="map-card" class="card-container">
+        <div id="map"></div>
+      </section>
+
+      <section id="chart-card" class="card-container">
+        <div class="chart-header">
+          <div>
+            <h3>Grafik Output Energi</h3>
+            <p>Estimasi produksi daya per jam (kWh)</p>
+          </div>
+          <!-- <div class="chart-actions">
+            <label class="toggle-switch">
+              <input type="checkbox" id="toggle-reference" checked />
+              <span class="toggle-switch__slider" aria-hidden="true"></span>
+              <span class="toggle-switch__label">Compare Open-Meteo</span>
+            </label>
+          </div> -->
+        </div>
+        <p class="chart-note" id="chart-note">Window forecast akan mengikuti timestamp dari API.</p>
+        <div class="canvas-wrapper">
+          <canvas id="chart"></canvas>
+        </div>
+      </section>
+    </main>
+
+    <script defer src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: capstone-backend
+    environment:
+      PORT: "${BACKEND_PORT}"
+      DATABASE_URL: "${DATABASE_URL}"
+    ports:
+      - "${BACKEND_PORT}:${BACKEND_PORT}"
+    volumes:
+      - backend_data:/data
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: capstone-frontend
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "${FRONTEND_PORT}:8012"
+    restart: unless-stopped
+
+volumes:
+  backend_data:
