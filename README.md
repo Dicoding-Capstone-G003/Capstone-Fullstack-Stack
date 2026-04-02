@@ -18,7 +18,7 @@ Folder ini berisi copy dari `Backend-Capstone` dan `Frontend-Capstone` yang suda
 
 Frontend di-stack ini sudah diarahkan ke backend lokal lewat proxy Nginx `/api`, jadi tidak lagi memakai endpoint remote.
 
-## Menjalankan di Docker Desktop Windows
+## Deploy On Windows (Docker Desktop)
 
 ### Prasyarat
 
@@ -50,7 +50,7 @@ docker compose down
 docker compose logs -f
 ```
 
-## Menjalankan di Linux
+## Deploy Docker on Linux
 
 ### Prasyarat
 
@@ -83,7 +83,7 @@ docker compose down
 docker compose logs -f
 ```
 
-## Menjalankan dengan Podman
+## Deploy Podman On Linux
 
 Project ini juga bisa dijalankan dengan Podman selama fitur compose tersedia di environment Anda.
 
